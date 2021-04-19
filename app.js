@@ -16,7 +16,7 @@ app.post("/",function(req,res){
     const url="https://api.openweathermap.org/data/2.5/weather?q="+query+"&appid="+appkey+"&unit="+unit;
     //we want data so using this https.get
     https.get(url,function(respond){
-     // console.log(respond.statusCode);
+    // console.log(respond.statusCode);
     respond.on("data",function(data){
          const wheatherData=JSON.parse(data);
          console.log(wheatherData);
