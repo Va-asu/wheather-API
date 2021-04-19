@@ -30,6 +30,26 @@ app.post("/",function(req,res){
       res.write("<img src="+image+">");
      });
     });
+    const options={
+      
+        method:"POST",
+        auth:"vaasu1:e9546e5e5bde0d9c30b6660a01208222"
+    }
+
+    const request=https.request(url,options,function(response){
+        if(response.statusCode===200)
+        {
+            res.sendFile(__dirname+"/index.html");
+        }
+        else
+        {
+            res.send("sorry but you failed");
+        }
+        response.on("data",function(data){
+            console.log("success");
+        })
+        
+    });
      
 });
 
